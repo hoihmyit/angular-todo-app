@@ -1,0 +1,47 @@
+<div class="todo-list-container">
+  <div class="todo-list">
+    <mat-card *ngFor="let todo of allTodos()" class="todo-item-card">
+      <div class="mat-card-content">
+        <div *ngIf="editingTodoId !== todo.id; else editMode">
+          <mat-checkbox
+            [checked]="todo.completed"
+            (change)="toggle(todo.id)"
+            [disabled]="todo.completed"
+          >
+            {{ todo.title }} - {{ todo.createdAt | date : "short" }}
+          </mat-checkbox>
+        </div>
+
+        <ng-template #editMode>
+          <mat-form-field class="edit-todo-field" appearance="outline">
+            <input matInput [(ngModel)]="editTitle" />
+          </mat-form-field>
+        </ng-template>
+
+        <div>
+          <button
+            *ngIf="editingTodoId !== todo.id && !todo.completed"
+            mat-icon-button
+            color="primary"
+            (click)="startEditing(todo)"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button
+            *ngIf="editingTodoId === todo.id"
+            mat-icon-button
+            color="primary"
+            (click)="saveEdit(todo.id)"
+          >
+            <mat-icon>check</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteTodo(todo.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+
+  <p *ngIf="isTodoListEmpty()" class="no-todos-message">No todos yet.</p>
+</div>

@@ -1,0 +1,24 @@
+<div class="completed-todo-container">
+  <div class="completed-todo">
+    <mat-card *ngFor="let todo of completedTodos()" class="todo-item-card">
+      <div class="mat-card-content">
+        <mat-checkbox [checked]="todo.completed" disabled>
+          {{ todo.title }} - {{ todo.createdAt | date : "short" }}
+        </mat-checkbox>
+
+        <button
+          mat-icon-button
+          color="primary"
+          (click)="deleteTodo(todo.id)"
+          aria-label="Delete Todo"
+        >
+          <mat-icon color="warn">delete</mat-icon>
+        </button>
+      </div>
+    </mat-card>
+  </div>
+
+  <p *ngIf="isCompletedTodoEmpty()" class="no-completed-todos-message">
+    No completed todos yet.
+  </p>
+</div>

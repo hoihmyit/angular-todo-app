@@ -1,0 +1,17 @@
+<form [formGroup]="todoForm" (ngSubmit)="onSubmit()" class="form-container">
+  <div class="form-row">
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label>What do you need to do?</mat-label>
+      <input matInput placeholder="Enter your task" formControlName="title" />
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      type="submit"
+      class="submit-btn"
+      [disabled]="todoForm.invalid"
+    >
+      Submit
+    </button>
+  </div>
+</form>

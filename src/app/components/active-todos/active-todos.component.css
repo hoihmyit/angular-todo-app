@@ -1,0 +1,48 @@
+.active-todo-container {
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.active-todo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  min-width: 560px;
+  max-width: 800px;
+}
+
+.todo-item-card {
+  padding: 4px;
+}
+
+.mat-card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-todo-field {
+  flex-direction: row;
+  min-width: 400px;
+}
+
+.no-active-todos-message {
+  text-align: center;
+  color: gray;
+  font-style: italic;
+}
+
+@media (max-width: 600px) {
+  .active-todo {
+    min-width: 400px;
+  }
+}
+
+@media (max-width: 500px) {
+  .active-todo {
+    min-width: 320px;
+  }
+}
