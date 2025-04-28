@@ -18,9 +18,7 @@ export class CompletedTodosComponent {
 
   isCompletedTodoEmpty = computed(() => this.completedTodos().length === 0);
 
-  completedTodos = computed(() => {
-    return this.todoService.completedTodos();
-  });
+  completedTodos = computed(() => this.todoService.completedTodos());
 
   deleteTodo(id: number) {
     this.todoService.deleteTodo(id);

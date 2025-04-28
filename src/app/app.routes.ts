@@ -6,10 +6,14 @@ import { CompletedTodosComponent } from './components/completed-todos/completed-
 import { ActiveTodosComponent } from './components/active-todos/active-todos.component';
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'list', pathMatch: 'full' },
-    { path: 'list', component: TodoListComponent },
-    { path: 'add', component: AddTodoComponent },
-    { path: 'completed', component: CompletedTodosComponent },
-    { path: 'active', component: ActiveTodosComponent },
-    { path: '**', component: NotFoundComponent },
+  { path: '', redirectTo: 'list', pathMatch: 'full' },
+  { path: 'list', component: TodoListComponent },
+  { path: 'add', component: AddTodoComponent },
+  { path: 'completed', component: CompletedTodosComponent },
+  { path: 'active', component: ActiveTodosComponent },
+  {
+    path: '**',
+    component: NotFoundComponent,
+    data: { title: 'Oops! Page not found' },
+  },
 ];
